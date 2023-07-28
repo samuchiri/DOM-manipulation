@@ -1,0 +1,122 @@
+#       The DOM is part of the APIs exposed to JS by the browser. The browser exposes
+#       the DOM API to your JS code. querySelector() uses a CSS selector and 
+#       can match any elements (depending on the provided selector.) getElementById()
+#       only looks for the id. querySelector finds the FIRST matching element, querySelectorAll()
+#       finds all matching elements (and hence returns an array like object)
+# <!-- querySelector() and querySelectorAll() are for
+#          selecting child elements/nodes -->
+#          <!-- If you want to select an element by class name or tag, 
+#           use querySelector() or querySelectorAll() -->
+#         <!-- To select a collection of elements with the same name, use 
+#         querySelectorAll() -->
+#         <!-- querySelector() will select the first matching item. 
+#         Use a period before the CSS class name. 
+#         Eg querySelector('.list-item') -->
+#         <!-- document.querySelector('ul li:first-of-type') 
+#             selects the first li tag under ul tag -->
+#         <!-- You may want to select the first child in a parent element. ie
+#         const ul= document.querySelector('ul')
+#         ul.querySelector('li'). ul is a parent element li is a child element -->
+#         <!-- if there are two divs select the second div as: 
+#         const advDiv = document.querySelectorAll('div')[1]; -->
+#         <!-- You can also select ids with querySelector with the # symbol
+#         const advDiv = document.querySelector('#advantages'); -->
+#         <!-- document.querySelector/All() takes css selector (#idName or
+#          .some-class) document.getElementById() takes ONLY the id name
+#          --> To change text content using querySelector(#someClass), type the following:
+#       const ulItem=document.querySelector('ul')
+#         ulItem.querySelector('#Five').textContent=ulItem.querySelector('#Five').textContent + " Task Five Completed!!!"
+#          <!-- document.getElementsByClassName() takes a CSS class .some-class
+#         and returns a live HTMLCollection document.getElementsByTagName(HTML TAG) 
+#         selects HTML tags. You can change DOM properties using textContent and className.
+#         For that, you need querySelector. ie const h1= document.querySelector('h1')
+#         Then type h1.textContent= "Some new Text" h1.style.color or h1.style.backgroundColor.
+#          To see the properties available use console.dir(h1)-->
+#          To see all list items const ulItem=document.querySelector('ul') 
+  #          Then type const liItem=list.querySelectorAll() OR const liItem=document.querySelectorAll()
+
+#          <!-- Attributes belong to HTML while properties belong to the DOM. In most cases, 
+#         attributes map to properties. Attributes are used to initialize properties. Attributes can not be 
+#         changed while properties can be changed. To get the attribute name, we use id. 
+#         Ie idName.getAttribute('value'). To get the property value (in the console type)
+#          IdName.value -->
+#         #   You can manipulate elements using p.textContent,or 
+        # <!-- # p.id or p.className. In the console, type const p=document.getElementById('karibu'); Then p.textContent,or  -->
+        # <!-- # p.id or p.className. You can change class name by typing p.className="new class" to change the class -->
+        # from default greeting to new class. In <input id="input-1" class="input-default" value="Enter text…">,
+        # <!--      input.id has 1-1 mapping +live sync. input.className has different attribute and property names -->
+        #     but live sync. input.value has 1:1 mapping and 1-way live sync.
+        # In the console, if you type const input=document.querySelector('input'); Then console.dir(input)
+        # You'll get an input object with its properties. The value property will show the input value
+        # as saved in the code (attribute value eg default-entry). Any changes in the input value in the elements
+        # tab, will be reflected in console.dir(input). If you change the attribute the DOM property will
+        # change. If you change the DOM property by typing input.value="New input", the value in the
+        # console will not change. But it will change in the interface. For ids and classes ie
+        # h1.id and h1.className, any changes in the elements tab (attribute) will be reflected in the
+        # DOM (console) and vice versa. Change attributes by typing h1.id="New Value"
+        # You can change an attribute with the setAttribute(). It takes two parameters: the name of attribute
+        # and the value you want to assign to that attribute. eg: input.setAttribute('value', 'New attribute set').
+        # Since there is no live sync, we have the old value. ie type input.value
+        # If the <input> tag is of file type, the value will be empty ('')
+        # You may want to select one element at a time. In the console, type: 
+        # const allElem=document.querySelectorAll('ul') Then type allElem[0]; to select the first element.
+        # You can also make a for of loop. const allListElements=document.querySelectorAll('li')
+        # for (listElement of allListElements){
+                # console.dir(listElement);
+        # }. You can also use const allListElement=document.getElementsByTag('li');
+        # for(listElement of allListElements){
+                # console.log(listElement);
+        # }
+        # To get the h1 object and its properties, const headName=document.getElementById('main-title');
+        # console.dir(document.getElementById('main-title'));
+        # When using id,className and value, use constant name to change the values eg:
+        # const constName=document.getElementById(''). Then constName.value or constName.id or constName.className.
+        # You may want to select child elements.Let's assume ul is the parent and li is a child element
+        # Type const ulItem=document.querySelector('ul'). Then ulItem.children to create an array-like HTML object.
+        # To select the first child elements, type ul.children[0]. Only element nodes are included. Text nodes are
+        # excluded when using ul.children. If you want to select text nodes as well use ul.childNodes 
+        #If you want to change text content and style, cont ul1=document.querySelector('li'); Then 
+        # li.textContent or li.style.backgroundColor.To select the first or last child element, type:
+        # const ul=document.querySelector ('ul'); ul being the parent element. Then ul.firstChild 
+        # or ul.querySelector('li:first-of-type'); Each node can only have one parent. To access the parent node,
+        # const liFirst=document.querySelector('li'); Then type liFirst.ParentNode or liFirst.ParentElement
+        # to get access to the NEAREST parent element or parent node. Text nodes CAN NOT have child nodes.
+        # closest() method gets any ancestor up on the element tree as long as it closely wraps the child element
+        # const liFirst=document.querySelector('li'); Then type liFirst.closest('body'); To edit list elements,
+        # type listItem.textContent=listItem.textContent +'Changed!!!'; To change the color of a list item,
+        # <!-- ulItem.children[5].style.color="red"; --> 
+        # <!--To access the parent elements use .parentElement or .parentNode. const listItem=document.querySelector('li')
+        #  Then type listItem.parentNode or listItem.parentElement. To get the previous
+        # element/text node use .previousSibling/previousElementSibling OR .nextSibling/ .nextElementSibling
+        # const ulItem1=document.querySelector('ul') Then type ulItem1.previousElementSibling or ulItem1.previousSibling --> 
+        # <!-- To add new elements to parent element (section), use .insertAdjacentHTML('position','<h4>New Text</h4>') 
+        # const section=document.querySelector('section') Then type section.insertAdjacentHTML('afterbegin','<h2>Piga Puff Bana!!!!</h2>'). 
+        # Position can be beforebegin, beforeend, afterend or afterbegin. You can also add new text by using .append()
+        # Eg section.append('New Text!!')
+        #  To override child elements in parent element(section) use innerHTML. ie section.innerHTML
+        #  To create a new element, use document.createElement() 
+        # ie const list=document.querySelector('ul')  Always use the parent element(eg ul in this case) 
+        # Then type const newList= document.createElement('li'). 
+        # 'li' refers to the element to be created ('li' in this case). To add another list item, type
+        #  const newList1=document.createElement('li')
+        # You can use .append() or .prepend() to add a new item on a list const ulItem2=document.querySelector('ul');
+        # Then type const liItem2=document.createElement('li');Then ulItem2.append(liItem2) OR ulItem2.prepend(liItem2)
+        # 
+        #  Then list.appendChild(newList) newList.textContent="New Text" OR 
+        # list.appendChild(newList1) newList1.textContent="New Text"-->
+        # To add new text to a list use .prepend. eg const ulItem=document.querySelector('ul').Then, ulItem.prepend.
+        # You can also introduce a new item const ulItem=document.querySelector('ul'). Select the item 
+        # const secondLi=ulItem.children[1]. const newLi=document.createElement('li') newLi.textContent="New Text". You can 
+        # also add new list item as const ulItem=document.querySelector('ul') const liItem=document.createElement('li')
+        # ulItem.lastElementChild.before(liItem) liItem.textContent="Ona Sasa!!!"
+        # Another way to add new list item: const ulItem=document.querySelector('ul') secondLi=ulItem.children[1]
+        # const liItem=document.createElement('li') secondLi.insertAdjacentElement('afterend' liItem)
+        #  liItem.textContent="New Text"
+        # To clone an existing node, we use .cloneNode(true) OR .cloneNode(false) cloneNode(true) takes all the
+        # child elements of the parent element while .cloneNode(false) doesn't
+        #const ulItem=document.querySelector('ul')  const liItem1=liItem.cloneNode(true)Then type ulItem.append(liItem1,liItem)
+
+        # Use these before parent elements: .append(), appendChild(), prepend(), insertAdjacentHTML(),
+        #  .lastElementChild.before(), .lastElementChild.after(), .firstElementChild.replaceWith()
+        # To include excess whitespace, in the styles tab type
+        # white-space:pre;
